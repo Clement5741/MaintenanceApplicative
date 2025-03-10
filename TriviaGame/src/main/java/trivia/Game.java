@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Game implements IGame {
    public final static int position = 12;
-   private final List<Player> players = new ArrayList<>();
+   public final List<Player> players = new ArrayList<>();
    private final QuestionDeck questionDeck = new QuestionDeck();
    private int currentPlayerIndex = 0;
 
