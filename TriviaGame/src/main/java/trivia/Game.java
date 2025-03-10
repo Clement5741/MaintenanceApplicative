@@ -53,9 +53,9 @@ public class Game implements IGame {
          System.out.println("Answer was correct!!!!");
          currentPlayer.addCoin();
          System.out.println(currentPlayer.getName() + " now has " + currentPlayer.getCoins() + " Gold Coins.");
-         boolean isTrue = currentPlayer.getCoins() < 6;
+         boolean isNotWinner = currentPlayer.getCoins() < 6;
          nextPlayer();
-         return isTrue;
+         return isNotWinner;
       } else {
          nextPlayer();
          return true;
