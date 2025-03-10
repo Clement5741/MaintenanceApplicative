@@ -31,8 +31,8 @@ public class Player {
     }
 
     public void move(int roll) {
-        position = (position + roll) % 12;
-        if (position == 0) position = 12; // Assurer que le joueur ne retombe pas sur 0
+        position = (position + roll) % Game.position;
+        if (position == 0) position = Game.position; // Assurer que le joueur ne retombe pas sur 0
     }
 
     public void addCoin() {
