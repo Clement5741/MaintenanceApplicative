@@ -12,7 +12,7 @@ public class Reunion extends Event {
 
     @Override
     public String description() {
-        return "Réunion : " + title + " à " + lieu + " le " + dateDebut.toString();
+        return "Réunion : " + title + " dans " + lieu + " le " + dateDebut.toString();
     }
 
 

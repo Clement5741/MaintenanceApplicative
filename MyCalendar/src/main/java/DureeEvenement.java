@@ -9,4 +9,9 @@ public class DureeEvenement {
     public int getDuree() {
         return minutes;
     }
+
+    @Override
+    public String toString() {
+        return minutes + " minutes";
+    }
 }

@@ -6,11 +6,8 @@ public class ProprietaireEvenement {
         this.proprietaire = proprietaire;
     }
 
-    public String getProprietaire() {
+    @Override
+    public String toString() {
         return proprietaire;
-    }
-
-    public void setProprietaire(String proprietaire) {
-        this.proprietaire = proprietaire;
     }
 }

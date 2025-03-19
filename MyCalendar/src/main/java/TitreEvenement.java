@@ -5,4 +5,9 @@ public class TitreEvenement {
     public TitreEvenement(String titre) {
         this.titre = titre;
     }
+
+    @Override
+    public String toString() {
+        return titre;
+    }
 }

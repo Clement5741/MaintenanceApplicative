@@ -31,4 +31,9 @@ public class DateEvenement {
     public LocalDateTime plusDays(int i) {
         return date.plusDays(i);
     }
+
+    @Override
+    public String toString() {
+        return date.toString();
+    }
 }

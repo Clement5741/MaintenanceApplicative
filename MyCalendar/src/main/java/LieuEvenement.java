@@ -12,4 +12,9 @@ public class LieuEvenement {
     public void setLieu(String lieu) {
         this.lieu = lieu;
     }
+
+    @Override
+    public String toString() {
+        return lieu;
+    }
 }

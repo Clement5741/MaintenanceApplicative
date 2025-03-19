@@ -9,4 +9,9 @@ public class ParticipantsEvenement {
     public void ajouterParticipant(String participant) {
         participants += ", " + participant;
     }
+
+    @Override
+    public String toString() {
+        return participants;
+    }
 }
