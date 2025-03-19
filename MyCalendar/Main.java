@@ -3,7 +3,7 @@ import java.time.temporal.WeekFields;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
-
+// Début Séance CHAUVEL
 public class Main {
     public static void main(String[] args) {
         CalendarManager calendar = new CalendarManager();
