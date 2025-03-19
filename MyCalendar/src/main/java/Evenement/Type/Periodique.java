@@ -1,3 +1,7 @@
+package Evenement.Type;
+
+import Evenement.*;
+
 public class Periodique extends Event {
     public FrequenceJoursEvenement frequenceJours;
 

@@ -1,3 +1,5 @@
+package Evenement;
+
 public class FrequenceJoursEvenement {
 
     private int frequenceJours;

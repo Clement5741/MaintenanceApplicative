@@ -1,7 +1,9 @@
+import Evenement.DateEvenement;
+import Evenement.Evenements;
+import Evenement.Event;
+import Evenement.Type.Periodique;
+
 import java.time.LocalDateTime;
-import java.time.chrono.ChronoLocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 public class CalendarManager {
     public Evenements events;

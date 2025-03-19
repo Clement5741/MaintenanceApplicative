@@ -1,3 +1,7 @@
+import Evenement.*;
+import Evenement.Type.Periodique;
+import Evenement.Type.RendezVousPersonnel;
+import Evenement.Type.Reunion;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;

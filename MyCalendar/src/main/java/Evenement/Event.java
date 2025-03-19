@@ -1,3 +1,5 @@
+package Evenement;
+
 public abstract class Event {
     public TitreEvenement title;
     public ProprietaireEvenement proprietaire;

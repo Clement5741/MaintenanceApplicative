@@ -1,3 +1,7 @@
+package Evenement.Type;
+
+import Evenement.*;
+
 public class Reunion extends Event {
 
     private LieuEvenement lieu;

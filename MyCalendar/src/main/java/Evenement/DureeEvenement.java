@@ -1,3 +1,5 @@
+package Evenement;
+
 public class DureeEvenement {
 
     private int minutes;
