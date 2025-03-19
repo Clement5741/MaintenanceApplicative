@@ -2,6 +2,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+// Test de la classe CalendarManager
 public class CalendarManagerTest {
 
     @Test
