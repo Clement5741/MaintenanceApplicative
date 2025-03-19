@@ -1,7 +1,7 @@
 public class RendezVousPersonnel extends Event {
 
 
-    public RendezVousPersonnel(DateEvenement date, ProprietaireEvenement proprietaire, DureeEvenement duree, TitreEvenement titre) {
+    public RendezVousPersonnel(TitreEvenement titre, ProprietaireEvenement proprietaire, DateEvenement date, DureeEvenement duree) {
         super(titre, proprietaire, date, duree);
     }
 

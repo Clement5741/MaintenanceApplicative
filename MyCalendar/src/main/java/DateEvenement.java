@@ -12,10 +12,6 @@ public class DateEvenement {
         return date;
     }
 
-    public void setDate(LocalDateTime date) {
-        this.date = date;
-    }
-
     public boolean isBefore(LocalDateTime debut) {
         return date.isBefore(debut);
     }

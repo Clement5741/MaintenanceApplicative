@@ -1,16 +1,8 @@
 public class Periodique extends Event {
-    public int frequenceJours;
+    public FrequenceJoursEvenement frequenceJours;
 
-    public Periodique(TitreEvenement title, ProprietaireEvenement proprietaire, DateEvenement dateDebut, DureeEvenement dureeMinutes, int frequenceJours) {
+    public Periodique(TitreEvenement title, ProprietaireEvenement proprietaire, DateEvenement dateDebut, DureeEvenement dureeMinutes, FrequenceJoursEvenement frequenceJours) {
         super(title, proprietaire, dateDebut, dureeMinutes);
-        this.frequenceJours = frequenceJours;
-    }
-
-    public int getFrequenceJours() {
-        return frequenceJours;
-    }
-
-    public void setFrequenceJours(int frequenceJours) {
         this.frequenceJours = frequenceJours;
     }
 

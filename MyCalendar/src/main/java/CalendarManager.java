@@ -17,14 +17,14 @@ public class CalendarManager {
     public Evenements eventsDansPeriode(DateEvenement debut, DateEvenement fin) {
         Evenements result = new Evenements();
         for (Event e : events.getEvenements()) {
-            if (e.getClass() == Periodique.class) {
+            if (e instanceof Periodique) {
                 LocalDateTime temp = e.dateDebut.getDate();
                 while (temp.isBefore(fin.getDate())) {
                     if (!temp.isBefore(debut.getDate())) {
                         result.ajouterEvent(e);
                         break;
                     }
-                    temp = temp.plusDays(((Periodique) e).frequenceJours);
+                    temp = temp.plusDays(((Periodique) e).frequenceJours.getFrequenceJours());
                 }
             } else if (!e.dateDebut.isBefore(debut.getDate()) && !e.dateDebut.isAfter(fin.getDate())) {
                 result.ajouterEvent(e);
@@ -37,7 +37,7 @@ public class CalendarManager {
         LocalDateTime fin1 = e1.dateDebut.plusMinutes(e1.dureeMinutes);
         LocalDateTime fin2 = e2.dateDebut.plusMinutes(e2.dureeMinutes);
 
-        if (e1.type.equals("PERIODIQUE") || e2.type.equals("PERIODIQUE")) {
+        if (e1 instanceof Periodique || e2 instanceof Periodique) {
             return false; // Simplification abusive
         }
 
