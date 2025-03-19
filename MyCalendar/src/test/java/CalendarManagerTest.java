@@ -3,9 +3,8 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
-// Test de la classe CalendarManager
 public class CalendarManagerTest {
 
     @Test
@@ -14,15 +13,17 @@ public class CalendarManagerTest {
 
 
         DateEvenement date = new DateEvenement(LocalDateTime.of(2021, 1, 1, 9, 0));
+        ProprietaireEvenement proprietaire = new ProprietaireEvenement("moi");
         DureeEvenement duree = new DureeEvenement(60); // durée en minutes
         TitreEvenement titre = new TitreEvenement("Rendez-vous test");
 
-        Event evenement = new RendezVousPersonnel(date, duree, titre);
+        Event evenement = new RendezVousPersonnel(date, proprietaire, duree, titre);
 
         manager.ajouterEvent(evenement);
 
-        List<Event> evenements = manager.getEvenementsPourPeriode(date, date);
-        assertTrue("L'événement ajouté devrait être présent dans la liste", evenements.contains(evenement));
+        Evenements evenements = manager.eventsDansPeriode(date, date);
+        assertTrue(evenements.contains(evenement), "L'événement ajouté doit être présent");
+
     }
 
 }
