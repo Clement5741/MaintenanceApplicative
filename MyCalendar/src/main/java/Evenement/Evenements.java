@@ -22,6 +22,4 @@ public class Evenements {
     public List<Event> getEvenements() {
         return evenements;
     }
-
-
 }

@@ -1,3 +1,4 @@
+import Calendar.CalendarManager;
 import Evenement.*;
 import Evenement.Type.Periodique;
 import Evenement.Type.RendezVousPersonnel;

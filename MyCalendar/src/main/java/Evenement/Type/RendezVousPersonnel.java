@@ -11,7 +11,10 @@ public class RendezVousPersonnel extends Event {
 
     @Override
     public String description() {
-        return "RDV : " + title + " le " + dateDebut;
+        return "\n" +
+                "RDV : " + this.getTitle() + " le " + this.getDateDebut() +
+                " pour une durée de " + this.getDureeMinutes() +
+                "\nPropriétaire : " + this.getProprietaire();
     }
 
 }

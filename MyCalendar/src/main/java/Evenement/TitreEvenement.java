@@ -8,6 +8,10 @@ public class TitreEvenement {
         this.titre = titre;
     }
 
+    public String getTitre() {
+        return titre;
+    }
+
     @Override
     public String toString() {
         return titre;
