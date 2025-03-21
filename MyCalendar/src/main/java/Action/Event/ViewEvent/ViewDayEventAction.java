@@ -33,7 +33,7 @@ public class ViewDayEventAction implements ActionInterface<User> {
         DateEvent debutJour = new DateEvent(LocalDateTime.of(anneeJour, moisJour, jour, 0, 0));
         DateEvent finJour = new DateEvent(debutJour.plusDays(1).minusSeconds(1));
 
-        afficherListe(calendar.eventsDansPeriode(debutJour, finJour).getEvents());
+        afficherListe(calendar.eventsDansPeriode(debutJour, finJour));
         return null;
     }
 }

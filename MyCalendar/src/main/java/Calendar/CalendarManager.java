@@ -29,14 +29,11 @@ public class CalendarManager {
     }
 
     public void afficherEvenements() {
-        Optional.of(events.getEvents())
-                .filter(list -> !list.isEmpty())
+        Optional.of(events.ViewEvents())
+                .filter(s -> !s.isEmpty())
                 .ifPresentOrElse(
-                        list -> {
-                            System.out.println("\nListe des évènements : ");
-                            list.forEach(e -> System.out.println(e.description()));
-                        },
-                        () -> System.out.println("Aucun événement")
+                        s -> System.out.print("\nListe des évènements : \n" + s),
+                        () -> System.out.println("\nAucun événement")
                 );
     }
 }

@@ -16,6 +16,7 @@ public class Main {
         ChoixScanner choixScanner = new ChoixScanner();
 
         Users users = new Users();
+        ActionInterface<User> defaultAction;
 
         while (true) {
             afficherMenuBase();
@@ -25,7 +26,7 @@ public class Main {
             listActionConnection.addAction(1, new ConnectionAction(users));
             listActionConnection.addAction(2, new CreateAccountAction(users));
 
-            ActionInterface<User> defaultAction = new DefaultAction(user);
+            defaultAction = new DefaultAction(user);
 
 
             System.out.println("1 - Se connecter");
@@ -45,6 +46,8 @@ public class Main {
                 listActionAfterConnection.addAction(3, new AddReunionAction(user, calendar));
                 listActionAfterConnection.addAction(4, new AddPeriodiqueAction(user, calendar));
                 listActionAfterConnection.addAction(5, new DisconnectAction(user));
+
+                defaultAction= new DefaultAction(user);
 
                 System.out.println("\nBonjour, " + user.getName());
                 System.out.println("=== Menu Gestionnaire d'Événements ===");

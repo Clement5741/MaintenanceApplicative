@@ -28,4 +28,12 @@ public class Events {
             events.add(e);
         }
     }
+
+    public String ViewEvents() {
+        StringBuilder sb = new StringBuilder();
+        for (Event e : events) {
+            sb.append(e.description()).append("\n");
+        }
+        return sb.toString();
+    }
 }

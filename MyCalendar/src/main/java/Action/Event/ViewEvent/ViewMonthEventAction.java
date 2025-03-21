@@ -29,7 +29,7 @@ public class ViewMonthEventAction implements ActionInterface<User> {
         DateEvent debutMois = new DateEvent(LocalDateTime.of(anneeMois, mois, 1, 0, 0));
         DateEvent finMois = new DateEvent(debutMois.plusMonths(1).minusSeconds(1));
 
-        afficherListe(calendar.eventsDansPeriode(debutMois, finMois).getEvents());
+        afficherListe(calendar.eventsDansPeriode(debutMois, finMois));
         return null;
     }
 }

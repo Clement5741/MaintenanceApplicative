@@ -36,7 +36,7 @@ public class ViewWeekEventAction implements ActionInterface<User> {
                 .withHour(0).withMinute(0));
         DateEvent finSemaine = new DateEvent(debutSemaine.plusDays(7).minusSeconds(1));
 
-        afficherListe(calendar.eventsDansPeriode(debutSemaine, finSemaine).getEvents());
+        afficherListe(calendar.eventsDansPeriode(debutSemaine, finSemaine));
         return null;
     }
 }

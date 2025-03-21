@@ -49,15 +49,12 @@ public class ViewEventAction implements ActionInterface<User> {
         return user;
     }
 
-    public static void afficherListe(List<Event> events) {
-        Optional.of(events)
-                .filter(list -> !list.isEmpty())
+    public static void afficherListe(Events events) {
+        Optional.of(events.ViewEvents())
+                .filter(s -> !s.isEmpty())
                 .ifPresentOrElse(
-                        list -> {
-                            System.out.println("\nListe des évènements : ");
-                            list.forEach(e -> System.out.println(e.description()));
-                        },
-                        () -> System.out.println("Aucun événement trouvé pour cette période.")
+                        s -> System.out.print("\nListe des évènements : \n" + s),
+                        () -> System.out.println("\nAucun événement trouvé pour cette période.")
                 );
     }
 }
