@@ -30,7 +30,7 @@ public class Main {
 
             System.out.println("1 - Se connecter");
             System.out.println("2 - Créer un compte");
-            System.out.println("Choix : ");
+            System.out.print("Choix : ");
             choixScanner.setChoixInt(scanner.nextInt());
 
             ActionInterface<User> actionConnection = listActionConnection.getOrDefault(choixScanner.getChoixInt(), defaultAction);

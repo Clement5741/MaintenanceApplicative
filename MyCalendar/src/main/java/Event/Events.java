@@ -22,4 +22,10 @@ public class Events {
     public List<Event> getEvents() {
         return events;
     }
+
+    public void addEventIfInPeriod(Event e, DateEvent debut, DateEvent fin) {
+        if (e.estDansPeriode(debut, fin)) {
+            events.add(e);
+        }
+    }
 }

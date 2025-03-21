@@ -16,12 +16,10 @@ public class Reunion extends Event {
 
     @Override
     public String description() {
-        return "\n" +
-                "Réunion : " + this.getTitle() + " dans " + lieu + " le " + this.getDateDebut().toString() +
+        return "Réunion : " + this.getTitle() + " dans " + lieu + " le " + this.getDateDebut().toString() +
                 " pour une durée de " + this.getDureeMinutes() +
-                "\nPropriétaire : " + this.getProprietaire() +
-                "\nParticipants : " + this.participants;
+                "\n     Propriétaire : " + this.getProprietaire() +
+                "\n     Participants : " + this.participants;
     }
-
 
 }

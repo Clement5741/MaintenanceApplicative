@@ -2,6 +2,8 @@ package Event.Type;
 
 import Event.*;
 
+import java.time.LocalDateTime;
+
 public class Periodique extends Event {
     private FrequencyDayEvent frequencyDayEvent;
 
@@ -16,10 +18,28 @@ public class Periodique extends Event {
 
     @Override
     public String description() {
-        return "\n" +
-                "Événement périodique : \n" +
+        return "Événement périodique : \n" +
                 this.getTitle() + " tous les " + frequencyDayEvent + " jours à partir du " + this.getDateDebut() +
                 " pour une durée de " + this.getDureeMinutes() +
-                "\nPropriétaire : " + this.getProprietaire();
+                "\n     Propriétaire : " + this.getProprietaire();
     }
+
+    @Override
+    public boolean estDansPeriode(DateEvent debut, DateEvent fin) {
+        Events result = new Events();
+        LocalDateTime temp = this.getDateDebut().getDate();
+        while (temp.isBefore(fin.getDate())) {
+            if (!temp.isBefore(debut.getDate())) {
+                result.addEvent(this);
+                break;
+            }
+            temp = temp.plusDays(this.getFrequencyDayEvent().getFrequenceJours());
+        }
+        return !result.getEvents().isEmpty();
+    }
+
+    public boolean conflitAvec(Event e) {
+        return false;
+    }
+
 }

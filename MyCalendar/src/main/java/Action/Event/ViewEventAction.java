@@ -27,6 +27,8 @@ public class ViewEventAction implements ActionInterface<User> {
         actions.put(2, new ViewMonthEventAction(calendar));
         actions.put(3, new ViewWeekEventAction(calendar));
         actions.put(4, new ViewDayEventAction(calendar));
+        actions.put(5, new BackEventAction());
+
 
         ActionInterface<User> defaultAction = new DefaultAction(user);
 
@@ -44,65 +46,18 @@ public class ViewEventAction implements ActionInterface<User> {
         ActionInterface<User> action = actions.getOrDefault(choix, defaultAction);
         action.execute();
 
-//        switch (choix) {
-//            case "1":
-//                calendar.afficherEvenements();
-//                break;
-//
-//            case "2":
-//                System.out.print("Entrez l'année (AAAA) : ");
-//                int anneeMois = Integer.parseInt(scanner.nextLine());
-//                System.out.print("Entrez le mois (1-12) : ");
-//                int mois = Integer.parseInt(scanner.nextLine());
-//
-//                DateEvenement debutMois = new DateEvenement(LocalDateTime.of(anneeMois, mois, 1, 0, 0));
-//                DateEvenement finMois = new DateEvenement(debutMois.plusMonths(1).minusSeconds(1));
-//
-//                afficherListe(calendar.eventsDansPeriode(debutMois, finMois).getEvenements());
-//                break;
-//
-//            case "3":
-//                System.out.print("Entrez l'année (AAAA) : ");
-//                int anneeSemaine = Integer.parseInt(scanner.nextLine());
-//                System.out.print("Entrez le numéro de semaine (1-52) : ");
-//                int semaine = Integer.parseInt(scanner.nextLine());
-//
-//                DateEvenement debutSemaine = new DateEvenement(LocalDateTime.now()
-//                        .withYear(anneeSemaine)
-//                        .with(WeekFields.of(Locale.FRANCE).weekOfYear(), semaine)
-//                        .with(WeekFields.of(Locale.FRANCE).dayOfWeek(), 1)
-//                        .withHour(0).withMinute(0));
-//                DateEvenement finSemaine = new DateEvenement(debutSemaine.plusDays(7).minusSeconds(1));
-//
-//                afficherListe(calendar.eventsDansPeriode(debutSemaine, finSemaine).getEvenements());
-//                break;
-//
-//            case "4":
-//                System.out.print("Entrez l'année (AAAA) : ");
-//                int anneeJour = Integer.parseInt(scanner.nextLine());
-//                System.out.print("Entrez le mois (1-12) : ");
-//                int moisJour = Integer.parseInt(scanner.nextLine());
-//                System.out.print("Entrez le jour (1-31) : ");
-//                int jour = Integer.parseInt(scanner.nextLine());
-//
-//                DateEvenement debutJour = new DateEvenement(LocalDateTime.of(anneeJour, moisJour, jour, 0, 0));
-//                DateEvenement finJour = new DateEvenement(debutJour.plusDays(1).minusSeconds(1));
-//
-//                afficherListe(calendar.eventsDansPeriode(debutJour, finJour).getEvenements());
-//                break;
-//        }
-
         return user;
     }
 
-    public static void afficherListe(List<Event> evenements) {
-        if (evenements.isEmpty()) {
-            System.out.println("Aucun événement trouvé pour cette période.");
-        } else {
-            System.out.println("Événements trouvés : ");
-            for (Event e : evenements) {
-                System.out.println("- " + e.description());
-            }
-        }
+    public static void afficherListe(List<Event> events) {
+        Optional.of(events)
+                .filter(list -> !list.isEmpty())
+                .ifPresentOrElse(
+                        list -> {
+                            System.out.println("\nListe des évènements : ");
+                            list.forEach(e -> System.out.println(e.description()));
+                        },
+                        () -> System.out.println("Aucun événement trouvé pour cette période.")
+                );
     }
 }

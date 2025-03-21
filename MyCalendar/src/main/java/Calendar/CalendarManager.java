@@ -3,9 +3,7 @@ package Calendar;
 import Event.DateEvent;
 import Event.Events;
 import Event.Event;
-import Event.Type.Periodique;
-
-import java.time.LocalDateTime;
+import java.util.Optional;
 
 public class CalendarManager {
     public Events events;
@@ -21,39 +19,24 @@ public class CalendarManager {
     public Events eventsDansPeriode(DateEvent debut, DateEvent fin) {
         Events result = new Events();
         for (Event e : events.getEvents()) {
-            if (e instanceof Periodique) {
-                LocalDateTime temp = e.getDateDebut().getDate();
-                while (temp.isBefore(fin.getDate())) {
-                    if (!temp.isBefore(debut.getDate())) {
-                        result.addEvent(e);
-                        break;
-                    }
-                    temp = temp.plusDays(((Periodique) e).getFrequencyDayEvent().getFrequenceJours());
-                }
-            } else if (!e.getDateDebut().isBefore(debut.getDate()) && !e.getDateDebut().isAfter(fin.getDate())) {
-                result.addEvent(e);
-            }
+            result.addEventIfInPeriod(e, debut, fin);
         }
         return result;
     }
 
     public boolean conflit(Event e1, Event e2) {
-        LocalDateTime fin1 = e1.getDateDebut().plusMinutes(e1.getDureeMinutes());
-        LocalDateTime fin2 = e2.getDateDebut().plusMinutes(e2.getDureeMinutes());
-
-        if (e1 instanceof Periodique || e2 instanceof Periodique) {
-            return false; // Simplification abusive
-        }
-
-        return e1.getDateDebut().isBefore(fin2) && fin1.isAfter(e2.getDateDebut().getDate());
+        return e1.conflitAvec(e2);
     }
 
     public void afficherEvenements() {
-        for (Event e : events.getEvents()) {
-            System.out.println(e.description());
-        }
-        if (events.getEvents().isEmpty()) {
-            System.out.println("Aucun événement");
-        }
+        Optional.of(events.getEvents())
+                .filter(list -> !list.isEmpty())
+                .ifPresentOrElse(
+                        list -> {
+                            System.out.println("\nListe des évènements : ");
+                            list.forEach(e -> System.out.println(e.description()));
+                        },
+                        () -> System.out.println("Aucun événement")
+                );
     }
 }
