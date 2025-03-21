@@ -2,8 +2,8 @@ package Action.Event;
 
 import Action.ActionInterface;
 import Calendar.CalendarManager;
-import Evenement.*;
-import Evenement.Type.Reunion;
+import Event.*;
+import Event.Type.Reunion;
 import User.User;
 
 import java.time.LocalDateTime;
@@ -46,7 +46,7 @@ public class AddReunionAction implements ActionInterface<User> {
         }
 
 
-        String participants = user.getNom();
+        String participants = user.getName();
 
         System.out.println("Participants : " + participants);
         System.out.println("Ajouter un participant ? (oui / non)");
@@ -58,7 +58,7 @@ public class AddReunionAction implements ActionInterface<User> {
             System.out.println("Ajouter un participant ? (oui / non)");
         }
 
-        calendar.ajouterEvent(new Reunion(new TitreEvenement(titre), new ProprietaireEvenement(user.getNom()), new DateEvenement(LocalDateTime.of(annee, moisRdv, jourRdv, heure, minute)), new DureeEvenement(duree), new LieuEvenement(lieu), new ParticipantsEvenement(participants)));
+        calendar.addEvent(new Reunion(new TitleEvent(titre), new OwnerEvent(user.getName()), new DateEvent(LocalDateTime.of(annee, moisRdv, jourRdv, heure, minute)), new DureeEvent(duree), new PlaceEvent(lieu), new ParticipantsEvent(participants)));
 
         System.out.println("Événement ajouté.");
         return user;

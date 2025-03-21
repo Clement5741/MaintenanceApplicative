@@ -1,10 +1,10 @@
-package Evenement;
+package Event;
 
-public class ParticipantsEvenement {
+public class ParticipantsEvent {
 
     private String participants;
 
-    public ParticipantsEvenement(String participants) {
+    public ParticipantsEvent(String participants) {
         this.participants = participants;
     }
 

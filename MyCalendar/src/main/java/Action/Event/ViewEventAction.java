@@ -2,11 +2,9 @@ package Action.Event;
 
 import Action.*;
 import Action.Event.ViewEvent.*;
-import Evenement.*;
+import Event.*;
 import User.*;
 
-import java.time.LocalDateTime;
-import java.time.temporal.WeekFields;
 import java.util.*;
 
 import Calendar.*;
@@ -39,6 +37,7 @@ public class ViewEventAction implements ActionInterface<User> {
         System.out.println("3 - Afficher les événements d'une SEMAINE précise");
         System.out.println("4 - Afficher les événements d'un JOUR précis");
         System.out.println("5 - Retour");
+        System.out.println("==========================================");
         System.out.print("Votre choix : ");
         int choix = scanner.nextInt();
 

@@ -1,10 +1,10 @@
-package Evenement;
+package Event;
 
-public class DureeEvenement {
+public class DureeEvent {
 
     private int minutes;
 
-    public DureeEvenement(int minutes) {
+    public DureeEvent(int minutes) {
         this.minutes = minutes;
     }
 

@@ -1,10 +1,10 @@
-package Evenement;
+package Event;
 
-public class FrequenceJoursEvenement {
+public class FrequencyDayEvent {
 
     private int frequenceJours;
 
-    public FrequenceJoursEvenement(int frequenceJours) {
+    public FrequencyDayEvent(int frequenceJours) {
         this.frequenceJours = frequenceJours;
     }
 

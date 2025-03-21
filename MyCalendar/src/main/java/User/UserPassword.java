@@ -2,13 +2,13 @@ package User;
 
 public class UserPassword {
 
-    private String motDePasse;
+    private String password;
 
-    public UserPassword(String motDePasse) {
-        this.motDePasse = motDePasse;
+    public UserPassword(String password) {
+        this.password = password;
     }
 
-    public String getMotDePasse() {
-        return motDePasse;
+    public String getPassword() {
+        return password;
     }
 }

@@ -1,11 +1,11 @@
-package Evenement.Type;
+package Event.Type;
 
-import Evenement.*;
+import Event.*;
 
-public class RendezVousPersonnel extends Event {
+public class RDVPerso extends Event {
 
 
-    public RendezVousPersonnel(TitreEvenement titre, ProprietaireEvenement proprietaire, DateEvenement date, DureeEvenement duree) {
+    public RDVPerso(TitleEvent titre, OwnerEvent proprietaire, DateEvent date, DureeEvent duree) {
         super(titre, proprietaire, date, duree);
     }
 

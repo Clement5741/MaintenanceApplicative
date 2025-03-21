@@ -8,7 +8,7 @@ public class UserName {
         this.nom = nom;
     }
 
-    public String getNom() {
+    public String getName() {
         return nom;
     }
 }

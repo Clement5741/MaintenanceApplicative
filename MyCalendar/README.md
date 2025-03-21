@@ -35,10 +35,10 @@ Chaque fonctionnalité doit être écrite en suivant strictement la démarche TD
 ### Interdiction des primitives nues :
 Toutes les données métier (dates, heures, durées, titres, lieux) doivent être représentées par des Value Objects immuables.
 Exemples obligatoires de Value Objects : 
-- Evenement.DateEvenement,
+- Event.DateEvent,
 - HeureDebut,
-- Evenement.DureeEvenement,
-- Evenement.TitreEvenement,
+- Event.DureeEvent,
+- Event.TitleEvent,
 - etc.
 
 Aucune primitive brute (int, double, String, Date, etc.) n’est autorisée dans le domaine métier directement.

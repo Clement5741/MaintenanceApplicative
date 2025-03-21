@@ -2,8 +2,8 @@ package Action.Event;
 
 import Action.ActionInterface;
 import Calendar.CalendarManager;
-import Evenement.*;
-import Evenement.Type.RendezVousPersonnel;
+import Event.*;
+import Event.Type.RDVPerso;
 import User.User;
 
 import java.time.LocalDateTime;
@@ -42,7 +42,7 @@ public class AddRDVAction implements ActionInterface<User> {
             System.out.println("Date invalide.");
             return user;
         }
-        calendar.ajouterEvent(new RendezVousPersonnel(new TitreEvenement(titre), new ProprietaireEvenement(user.getNom()), new DateEvenement(LocalDateTime.of(annee, moisRdv, jourRdv, heure, minute)), new DureeEvenement(duree)));
+        calendar.addEvent(new RDVPerso(new TitleEvent(titre), new OwnerEvent(user.getName()), new DateEvent(LocalDateTime.of(annee, moisRdv, jourRdv, heure, minute)), new DureeEvent(duree)));
 
         System.out.println("Événement ajouté.");
         return user;

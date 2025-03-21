@@ -1,9 +1,9 @@
-package Evenement;
+package Event;
 
-public class LieuEvenement {
+public class PlaceEvent {
     private String lieu;
 
-    public LieuEvenement(String lieu) {
+    public PlaceEvent(String lieu) {
         this.lieu = lieu;
     }
 

@@ -2,7 +2,7 @@ package Action.Event.ViewEvent;
 
 import Action.ActionInterface;
 import Calendar.CalendarManager;
-import Evenement.DateEvenement;
+import Event.DateEvent;
 import User.User;
 
 import java.time.LocalDateTime;
@@ -26,10 +26,10 @@ public class ViewMonthEventAction implements ActionInterface<User> {
         System.out.print("Entrez le mois (1-12) : ");
         int mois = Integer.parseInt(scanner.nextLine());
 
-        DateEvenement debutMois = new DateEvenement(LocalDateTime.of(anneeMois, mois, 1, 0, 0));
-        DateEvenement finMois = new DateEvenement(debutMois.plusMonths(1).minusSeconds(1));
+        DateEvent debutMois = new DateEvent(LocalDateTime.of(anneeMois, mois, 1, 0, 0));
+        DateEvent finMois = new DateEvent(debutMois.plusMonths(1).minusSeconds(1));
 
-        afficherListe(calendar.eventsDansPeriode(debutMois, finMois).getEvenements());
+        afficherListe(calendar.eventsDansPeriode(debutMois, finMois).getEvents());
         return null;
     }
 }

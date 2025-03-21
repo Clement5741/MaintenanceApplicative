@@ -2,8 +2,8 @@ package Action.Event;
 
 import Action.ActionInterface;
 import Calendar.CalendarManager;
-import Evenement.*;
-import Evenement.Type.Periodique;
+import Event.*;
+import Event.Type.Periodique;
 import User.User;
 
 import java.time.LocalDateTime;
@@ -43,7 +43,7 @@ public class AddPeriodiqueAction implements ActionInterface<User> {
             return user;
         }
 
-        calendar.ajouterEvent(new Periodique(new TitreEvenement(titre), new ProprietaireEvenement(user.getNom()), new DateEvenement(LocalDateTime.of(annee, moisRdv, jourRdv, heure, minute)), new DureeEvenement(0), new FrequenceJoursEvenement(frequence)));
+        calendar.addEvent(new Periodique(new TitleEvent(titre), new OwnerEvent(user.getName()), new DateEvent(LocalDateTime.of(annee, moisRdv, jourRdv, heure, minute)), new DureeEvent(0), new FrequencyDayEvent(frequence)));
 
         System.out.println("Événement ajouté.");
         return user;

@@ -1,10 +1,10 @@
-package Evenement;
+package Event;
 
-public class TitreEvenement {
+public class TitleEvent {
 
     private String titre;
 
-    public TitreEvenement(String titre) {
+    public TitleEvent(String titre) {
         this.titre = titre;
     }
 

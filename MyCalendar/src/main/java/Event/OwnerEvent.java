@@ -1,10 +1,10 @@
-package Evenement;
+package Event;
 
-public class ProprietaireEvenement {
+public class OwnerEvent {
 
     private String proprietaire;
 
-    public ProprietaireEvenement(String proprietaire) {
+    public OwnerEvent(String proprietaire) {
         this.proprietaire = proprietaire;
     }
 

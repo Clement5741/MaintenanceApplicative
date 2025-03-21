@@ -1,41 +1,37 @@
 package Calendar;
 
-import Evenement.DateEvenement;
-import Evenement.Evenements;
-import Evenement.Event;
-import Evenement.Type.Periodique;
+import Event.DateEvent;
+import Event.Events;
+import Event.Event;
+import Event.Type.Periodique;
 
 import java.time.LocalDateTime;
 
 public class CalendarManager {
-    public Evenements events;
+    public Events events;
 
     public CalendarManager() {
-        this.events = new Evenements();
+        this.events = new Events();
     }
 
-    public void ajouterEvent(Event e) {
-        events.ajouterEvent(e);
+    public void addEvent(Event e) {
+        events.addEvent(e);
     }
 
-    public Evenements getEvenements() {
-        return events;
-    }
-
-    public Evenements eventsDansPeriode(DateEvenement debut, DateEvenement fin) {
-        Evenements result = new Evenements();
-        for (Event e : events.getEvenements()) {
+    public Events eventsDansPeriode(DateEvent debut, DateEvent fin) {
+        Events result = new Events();
+        for (Event e : events.getEvents()) {
             if (e instanceof Periodique) {
                 LocalDateTime temp = e.getDateDebut().getDate();
                 while (temp.isBefore(fin.getDate())) {
                     if (!temp.isBefore(debut.getDate())) {
-                        result.ajouterEvent(e);
+                        result.addEvent(e);
                         break;
                     }
-                    temp = temp.plusDays(((Periodique) e).frequenceJours.getFrequenceJours());
+                    temp = temp.plusDays(((Periodique) e).getFrequencyDayEvent().getFrequenceJours());
                 }
             } else if (!e.getDateDebut().isBefore(debut.getDate()) && !e.getDateDebut().isAfter(fin.getDate())) {
-                result.ajouterEvent(e);
+                result.addEvent(e);
             }
         }
         return result;
@@ -49,17 +45,14 @@ public class CalendarManager {
             return false; // Simplification abusive
         }
 
-        if (e1.getDateDebut().isBefore(fin2) && fin1.isAfter(e2.getDateDebut().getDate())) {
-            return true;
-        }
-        return false;
+        return e1.getDateDebut().isBefore(fin2) && fin1.isAfter(e2.getDateDebut().getDate());
     }
 
     public void afficherEvenements() {
-        for (Event e : events.getEvenements()) {
+        for (Event e : events.getEvents()) {
             System.out.println(e.description());
         }
-        if (events.getEvenements().isEmpty()) {
+        if (events.getEvents().isEmpty()) {
             System.out.println("Aucun événement");
         }
     }

@@ -1,14 +1,14 @@
-package Evenement.Type;
+package Event.Type;
 
-import Evenement.*;
+import Event.*;
 
 public class Reunion extends Event {
 
-    private LieuEvenement lieu;
+    private PlaceEvent lieu;
 
-    private ParticipantsEvenement participants;
+    private ParticipantsEvent participants;
 
-    public Reunion(TitreEvenement title, ProprietaireEvenement proprietaire, DateEvenement dateDebut, DureeEvenement dureeMinutes, LieuEvenement lieu, ParticipantsEvenement participants) {
+    public Reunion(TitleEvent title, OwnerEvent proprietaire, DateEvent dateDebut, DureeEvent dureeMinutes, PlaceEvent lieu, ParticipantsEvent participants) {
         super(title, proprietaire, dateDebut, dureeMinutes);
         this.lieu = lieu;
         this.participants = participants;

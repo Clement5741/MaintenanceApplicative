@@ -1,8 +1,8 @@
 import Calendar.CalendarManager;
-import Evenement.*;
-import Evenement.Type.Periodique;
-import Evenement.Type.RendezVousPersonnel;
-import Evenement.Type.Reunion;
+import Event.*;
+import Event.Type.Periodique;
+import Event.Type.RDVPerso;
+import Event.Type.Reunion;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
@@ -16,16 +16,16 @@ public class CalendarManagerTest {
         CalendarManager manager = new CalendarManager();
 
 
-        TitreEvenement titre = new TitreEvenement("Rendez-vous test");
-        ProprietaireEvenement proprietaire = new ProprietaireEvenement("moi");
-        DateEvenement date = new DateEvenement(LocalDateTime.of(2021, 1, 1, 9, 0));
-        DureeEvenement duree = new DureeEvenement(60); // durée en minutes
+        TitleEvent titre = new TitleEvent("Rendez-vous test");
+        OwnerEvent proprietaire = new OwnerEvent("moi");
+        DateEvent date = new DateEvent(LocalDateTime.of(2021, 1, 1, 9, 0));
+        DureeEvent duree = new DureeEvent(60); // durée en minutes
 
-        Event evenement = new RendezVousPersonnel(titre, proprietaire, date, duree);
+        Event evenement = new RDVPerso(titre, proprietaire, date, duree);
 
-        manager.ajouterEvent(evenement);
+        manager.addEvent(evenement);
 
-        Evenements evenements = manager.eventsDansPeriode(date, date);
+        Events evenements = manager.eventsDansPeriode(date, date);
         assertTrue(evenements.contains(evenement), "L'événement ajouté doit être présent");
     }
 
@@ -33,17 +33,17 @@ public class CalendarManagerTest {
     public void testAjouterEvenementPeriodique() {
         CalendarManager manager = new CalendarManager();
 
-        TitreEvenement titre = new TitreEvenement("Rendez-vous test");
-        ProprietaireEvenement proprietaire = new ProprietaireEvenement("moi");
-        DateEvenement date = new DateEvenement(LocalDateTime.of(2021, 1, 1, 9, 0));
-        DureeEvenement duree = new DureeEvenement(60); // durée en minutes
-        FrequenceJoursEvenement frequence = new FrequenceJoursEvenement(7);
+        TitleEvent titre = new TitleEvent("Rendez-vous test");
+        OwnerEvent proprietaire = new OwnerEvent("moi");
+        DateEvent date = new DateEvent(LocalDateTime.of(2021, 1, 1, 9, 0));
+        DureeEvent duree = new DureeEvent(60); // durée en minutes
+        FrequencyDayEvent frequence = new FrequencyDayEvent(7);
 
         Event evenement = new Periodique(titre, proprietaire, date, duree, frequence);
 
-        manager.ajouterEvent(evenement);
+        manager.addEvent(evenement);
 
-        Evenements evenements = manager.eventsDansPeriode(date, new DateEvenement(date.plusDays(30)));
+        Events evenements = manager.eventsDansPeriode(date, new DateEvent(date.plusDays(30)));
         assertTrue(evenements.contains(evenement), "L'événement ajouté doit être présent");
     }
 
@@ -51,19 +51,19 @@ public class CalendarManagerTest {
     public void testAjouterEvenementReunion() {
         CalendarManager manager = new CalendarManager();
 
-        TitreEvenement titre = new TitreEvenement("Rendez-vous test");
-        ProprietaireEvenement proprietaire = new ProprietaireEvenement("moi");
-        DateEvenement date = new DateEvenement(LocalDateTime.of(2021, 1, 1, 9, 0));
-        DureeEvenement duree = new DureeEvenement(60); // durée en minutes
-        LieuEvenement lieu = new LieuEvenement("Salle de réunion");
-        ParticipantsEvenement participants = new ParticipantsEvenement("moi");
+        TitleEvent titre = new TitleEvent("Rendez-vous test");
+        OwnerEvent proprietaire = new OwnerEvent("moi");
+        DateEvent date = new DateEvent(LocalDateTime.of(2021, 1, 1, 9, 0));
+        DureeEvent duree = new DureeEvent(60); // durée en minutes
+        PlaceEvent lieu = new PlaceEvent("Salle de réunion");
+        ParticipantsEvent participants = new ParticipantsEvent("moi");
         participants.ajouterParticipant("toi");
 
         Event evenement = new Reunion(titre, proprietaire, date, duree, lieu, participants);
 
-        manager.ajouterEvent(evenement);
+        manager.addEvent(evenement);
 
-        Evenements evenements = manager.eventsDansPeriode(date, date);
+        Events evenements = manager.eventsDansPeriode(date, date);
         assertTrue(evenements.contains(evenement), "L'événement ajouté doit être présent");
     }
 
@@ -71,13 +71,13 @@ public class CalendarManagerTest {
     public void testConflit() {
         CalendarManager manager = new CalendarManager();
 
-        DateEvenement date = new DateEvenement(LocalDateTime.of(2021, 1, 1, 9, 0));
-        ProprietaireEvenement proprietaire = new ProprietaireEvenement("moi");
-        DureeEvenement duree = new DureeEvenement(60); // durée en minutes
-        TitreEvenement titre = new TitreEvenement("Rendez-vous test");
+        DateEvent date = new DateEvent(LocalDateTime.of(2021, 1, 1, 9, 0));
+        OwnerEvent proprietaire = new OwnerEvent("moi");
+        DureeEvent duree = new DureeEvent(60); // durée en minutes
+        TitleEvent titre = new TitleEvent("Rendez-vous test");
 
-        Event evenement1 = new RendezVousPersonnel(titre, proprietaire, date,  duree);
-        Event evenement2 = new RendezVousPersonnel(titre, proprietaire, new DateEvenement(date.plusMinutes(new DureeEvenement(30))), duree);
+        Event evenement1 = new RDVPerso(titre, proprietaire, date,  duree);
+        Event evenement2 = new RDVPerso(titre, proprietaire, new DateEvent(date.plusMinutes(new DureeEvent(30))), duree);
 
         assertTrue(manager.conflit(evenement1, evenement2), "Les deux événements se chevauchent");
     }

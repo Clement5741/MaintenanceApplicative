@@ -2,7 +2,7 @@ package Action.Event.ViewEvent;
 
 import Action.ActionInterface;
 import Calendar.CalendarManager;
-import Evenement.DateEvenement;
+import Event.DateEvent;
 import User.User;
 
 import java.time.LocalDateTime;
@@ -29,14 +29,14 @@ public class ViewWeekEventAction implements ActionInterface<User> {
         System.out.print("Entrez le numéro de semaine (1-52) : ");
         int semaine = Integer.parseInt(scanner.nextLine());
 
-        DateEvenement debutSemaine = new DateEvenement(LocalDateTime.now()
+        DateEvent debutSemaine = new DateEvent(LocalDateTime.now()
                 .withYear(anneeSemaine)
                 .with(WeekFields.of(Locale.FRANCE).weekOfYear(), semaine)
                 .with(WeekFields.of(Locale.FRANCE).dayOfWeek(), 1)
                 .withHour(0).withMinute(0));
-        DateEvenement finSemaine = new DateEvenement(debutSemaine.plusDays(7).minusSeconds(1));
+        DateEvent finSemaine = new DateEvent(debutSemaine.plusDays(7).minusSeconds(1));
 
-        afficherListe(calendar.eventsDansPeriode(debutSemaine, finSemaine).getEvenements());
+        afficherListe(calendar.eventsDansPeriode(debutSemaine, finSemaine).getEvents());
         return null;
     }
 }

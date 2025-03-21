@@ -2,19 +2,19 @@ package User;
 
 public class User {
 
-    UserName nom;
-    UserPassword motDePasse;
+    UserName name;
+    UserPassword password;
 
-    public User(UserName nom, UserPassword motDePasse) {
-        this.nom = nom;
-        this.motDePasse = motDePasse;
+    public User(UserName name, UserPassword password) {
+        this.name = name;
+        this.password = password;
     }
 
-    public String getNom() {
-        return nom.getNom();
+    public String getName() {
+        return name.getName();
     }
 
-    public String getMotDePasse() {
-        return motDePasse.getMotDePasse();
+    public String getPassword() {
+        return password.getPassword();
     }
 }

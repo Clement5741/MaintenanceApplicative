@@ -2,7 +2,8 @@ package Action.Event.ViewEvent;
 
 import Action.ActionInterface;
 import Calendar.CalendarManager;
-import Evenement.DateEvenement;
+import ChoixScanner.ChoixScanner;
+import Event.DateEvent;
 import User.User;
 
 import java.time.LocalDateTime;
@@ -29,10 +30,10 @@ public class ViewDayEventAction implements ActionInterface<User> {
         System.out.print("Entrez le jour (1-31) : ");
         int jour = Integer.parseInt(scanner.nextLine());
 
-        DateEvenement debutJour = new DateEvenement(LocalDateTime.of(anneeJour, moisJour, jour, 0, 0));
-        DateEvenement finJour = new DateEvenement(debutJour.plusDays(1).minusSeconds(1));
+        DateEvent debutJour = new DateEvent(LocalDateTime.of(anneeJour, moisJour, jour, 0, 0));
+        DateEvent finJour = new DateEvent(debutJour.plusDays(1).minusSeconds(1));
 
-        afficherListe(calendar.eventsDansPeriode(debutJour, finJour).getEvenements());
+        afficherListe(calendar.eventsDansPeriode(debutJour, finJour).getEvents());
         return null;
     }
 }

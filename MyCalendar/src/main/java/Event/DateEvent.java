@@ -1,12 +1,12 @@
-package Evenement;
+package Event;
 
 import java.time.LocalDateTime;
 
-public class DateEvenement {
+public class DateEvent {
 
     private LocalDateTime date;
 
-    public DateEvenement(LocalDateTime date) {
+    public DateEvent(LocalDateTime date) {
         this.date = date;
     }
 
@@ -22,7 +22,7 @@ public class DateEvenement {
         return date.isAfter(fin);
     }
 
-    public LocalDateTime plusMinutes(DureeEvenement dureeMinutes) {
+    public LocalDateTime plusMinutes(DureeEvent dureeMinutes) {
         return date.plusMinutes(dureeMinutes.getDuree());
     }
 

@@ -5,22 +5,18 @@ import java.util.List;
 
 public class Users {
 
-    private List<User> utilisateurs;
+    private List<User> users;
 
     public Users() {
-        this.utilisateurs = new ArrayList<>();
+        this.users = new ArrayList<>();
     }
 
-    public void ajouterUtilisateur(User u) {
-        utilisateurs.add(u);
+    public void addUser(User u) {
+        users.add(u);
     }
 
-    public int NombreUtilisateurs() {
-        return utilisateurs.size();
-    }
-
-    public List<User> getUtilisateurs() {
-        return utilisateurs;
+    public List<User> getUsers() {
+        return users;
     }
 
 }
