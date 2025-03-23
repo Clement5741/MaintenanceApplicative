@@ -8,7 +8,6 @@ import Event.ValueObjectsEvent.AllEvent.TitleEvent;
 
 public class RDVPerso extends Event {
 
-
     public RDVPerso(TitleEvent titre, OwnerEvent proprietaire, DateEvent date, DureeEvent duree) {
         super(titre, proprietaire, date, duree);
     }

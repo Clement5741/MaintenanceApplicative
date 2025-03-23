@@ -18,14 +18,6 @@ public class Birthday extends Event {
         this.age = age;
     }
 
-    public String getPerson() {
-        return person.getName();
-    }
-
-    public int getAge() {
-        return age.getAge();
-    }
-
     @Override
     public String description() {
         return "Anniversaire : " + this.getTitle() +
