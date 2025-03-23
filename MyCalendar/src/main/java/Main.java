@@ -1,6 +1,4 @@
 import Action.*;
-import Action.Event.*;
-import Action.GestionUser.*;
 import ChoixScanner.ChoixScanner;
 import User.*;
 import Calendar.*;

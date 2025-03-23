@@ -13,6 +13,12 @@ public class CalendarManager {
     }
 
     public void addEvent(Event e) {
+        // On regarde s'il y a un conflit
+        for (Event event : events.getEvents()) {
+            if (conflit(e, event)) {
+                throw new IllegalArgumentException("Conflit avec l'évènement : " + event);
+            }
+        }
         events.addEvent(e);
     }
 
