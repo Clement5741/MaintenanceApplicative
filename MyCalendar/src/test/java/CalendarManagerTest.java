@@ -97,6 +97,27 @@ public class CalendarManagerTest {
         assertTrue(manager.conflit(evenement1, evenement2), "Les deux événements se chevauchent");
     }
 
+    @Test
+    public void testAjouterEvenementBirthday() {
+        CalendarManager manager = new CalendarManager();
 
+        TitleEvent titre = new TitleEvent("Anniversaire");
+        OwnerEvent proprietaire = new OwnerEvent("moi");
+        DateEvent date = new DateEvent(LocalDateTime.of(2021, 1, 1, 9, 0));
+        DureeEvent duree = new DureeEvent(60); // durée en minutes
+        NamePerson person = new NamePerson("Coco");
+        AgePerson age = new AgePerson(20);
+
+
+        Event evenement = new Birthday(titre, proprietaire, date, duree, person, age);
+
+        manager.addEvent(evenement);
+
+        DateEvent debutJour = new DateEvent(date.getDate().minusSeconds(1));
+        DateEvent finJour = new DateEvent(date.plusDays(1).minusSeconds(1));
+
+        Events evenements = manager.eventsDansPeriode(debutJour, finJour);
+        assertTrue(evenements.contains(evenement), "L'événement ajouté doit être présent");
+    }
 
 }
