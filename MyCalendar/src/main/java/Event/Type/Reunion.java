@@ -28,4 +28,9 @@ public class Reunion extends Event {
                 "\n     Participants : " + this.participants;
     }
 
+    @Override
+    public String shortDescription() {
+        return "Réunion : " + this.getTitle() + " le " + this.getDateDebut() + " pour une durée de " + this.getDureeMinutes();
+    }
+
 }

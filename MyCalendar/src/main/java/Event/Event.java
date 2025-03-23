@@ -38,6 +38,7 @@ public abstract class Event {
     }
 
     public abstract String description();
+    public abstract String shortDescription();
 
     public boolean estDansPeriode(DateEvent debut, DateEvent fin) {
         return !this.getDateDebut().isBefore(debut.getDate()) && !this.getDateDebut().isAfter(fin.getDate());

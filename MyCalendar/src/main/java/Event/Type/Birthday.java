@@ -29,10 +29,15 @@ public class Birthday extends Event {
     @Override
     public String description() {
         return "Anniversaire : " + this.getTitle() +
-                "\n     Pour : " + person + " qui fête ses " + age +
+                "\n     De : " + person + " qui fête ses " + age +
                 "\n     Le : " + this.getDateDebut() +
                 "\n     Durée : " + this.getDureeMinutes() +
                 "\n     Propriétaire : " + this.getProprietaire();
+    }
+
+    @Override
+    public String shortDescription() {
+        return "Anniversaire : " + this.getTitle() + " de " + person + " le " + this.getDateDebut() + " pour une durée de " + this.getDureeMinutes();
     }
 
 }

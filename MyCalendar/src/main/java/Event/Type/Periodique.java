@@ -30,6 +30,11 @@ public class Periodique extends Event {
     }
 
     @Override
+    public String shortDescription() {
+        return "Événement périodique : " + this.getTitle() + " du " + this.getDateDebut() + " pour une durée de " + this.getDureeMinutes();
+    }
+
+    @Override
     public boolean estDansPeriode(DateEvent debut, DateEvent fin) {
         Events result = new Events();
         LocalDateTime temp = this.getDateDebut().getDate();
