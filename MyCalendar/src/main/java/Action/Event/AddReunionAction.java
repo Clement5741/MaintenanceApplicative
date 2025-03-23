@@ -63,7 +63,12 @@ public class AddReunionAction implements ActionInterface<User> {
             System.out.println("Ajouter un participant ? (oui / non)");
         }
 
-        calendar.addEvent(new Reunion(new TitleEvent(titre), new OwnerEvent(user.getName()), new DateEvent(LocalDateTime.of(annee, moisRdv, jourRdv, heure, minute)), new DureeEvent(duree), new PlaceEvent(lieu), new ParticipantsEvent(participants)));
+        try {
+            calendar.addEvent(new Reunion(new TitleEvent(titre), new OwnerEvent(user.getName()), new DateEvent(LocalDateTime.of(annee, moisRdv, jourRdv, heure, minute)), new DureeEvent(duree), new PlaceEvent(lieu), new ParticipantsEvent(participants)));
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return user;
+        }
 
         System.out.println("Événement ajouté.");
         return user;

@@ -6,6 +6,8 @@ import Event.ValueObjectsEvent.AllEvent.OwnerEvent;
 import Event.ValueObjectsEvent.AllEvent.TitleEvent;
 import Event.Type.Periodique;
 
+import java.time.LocalDateTime;
+
 public abstract class Event {
     private TitleEvent title;
     private OwnerEvent proprietaire;
@@ -42,10 +44,12 @@ public abstract class Event {
     }
 
     public boolean conflitAvec(Event e) {
+        LocalDateTime fin1 = this.dateDebut.plusMinutes(this.dureeMinutes);
+        LocalDateTime fin2 = e.dateDebut.plusMinutes(e.dureeMinutes);
         if (e instanceof Periodique) {
             return false;
         }
-        return this.getDateDebut().isBefore(e.getDateDebut().plusMinutes(e.getDureeMinutes())) && this.getDateDebut().plusMinutes(this.getDureeMinutes()).isAfter(e.getDateDebut().getDate());
+        return this.dateDebut.isBefore(fin2) && fin1.isAfter(e.dateDebut.getDate());
     }
 
 }

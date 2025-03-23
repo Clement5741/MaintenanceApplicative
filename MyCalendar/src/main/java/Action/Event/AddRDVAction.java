@@ -45,7 +45,13 @@ public class AddRDVAction implements ActionInterface<User> {
             System.out.println("Date invalide.");
             return user;
         }
-        calendar.addEvent(new RDVPerso(new TitleEvent(titre), new OwnerEvent(user.getName()), new DateEvent(LocalDateTime.of(annee, moisRdv, jourRdv, heure, minute)), new DureeEvent(duree)));
+
+        try {
+            calendar.addEvent(new RDVPerso(new TitleEvent(titre), new OwnerEvent(user.getName()), new DateEvent(LocalDateTime.of(annee, moisRdv, jourRdv, heure, minute)), new DureeEvent(duree)));
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return user;
+        }
 
         System.out.println("Événement ajouté.");
         return user;

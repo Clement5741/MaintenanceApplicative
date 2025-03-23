@@ -47,7 +47,12 @@ public class AddBirthdayAction implements ActionInterface<User> {
             return user;
         }
 
-        calendar.addEvent(new Birthday(new TitleEvent(titre), new OwnerEvent(user.getName()), new DateEvent(LocalDateTime.of(annee, moisRdv, jourRdv, heure, minute)), new DureeEvent(0), new NamePerson(nom), new AgePerson(age)));
+        try {
+            calendar.addEvent(new Birthday(new TitleEvent(titre), new OwnerEvent(user.getName()), new DateEvent(LocalDateTime.of(annee, moisRdv, jourRdv, heure, minute)), new DureeEvent(0), new NamePerson(nom), new AgePerson(age)));
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return user;
+        }
 
         System.out.println("Événement ajouté.");
         return user;
