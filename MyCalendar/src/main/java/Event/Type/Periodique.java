@@ -27,7 +27,8 @@ public class Periodique extends Event {
                 this.getTitle() + " tous les " + frequencyDayEvent +
                 " jours à partir du " + this.getDateDebut() +
                 " pour une durée de " + this.getDureeMinutes() +
-                "\n     Propriétaire : " + this.getProprietaire();
+                "\n     Propriétaire : " + this.getProprietaire() +
+                "\n" + super.description();
     }
 
     @Override

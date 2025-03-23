@@ -26,7 +26,8 @@ public class Reunion extends Event {
                 " le " + this.getDateDebut().toString() +
                 " pour une durée de " + this.getDureeMinutes() +
                 "\n     Propriétaire : " + this.getProprietaire() +
-                "\n     Participants : " + this.participants;
+                "\n     Participants : " + this.participants +
+                "\n" + super.description();
     }
 
     @Override

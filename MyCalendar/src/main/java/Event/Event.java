@@ -1,9 +1,6 @@
 package Event;
 
-import Event.ValueObjectsEvent.AllEvent.DateEvent;
-import Event.ValueObjectsEvent.AllEvent.DureeEvent;
-import Event.ValueObjectsEvent.AllEvent.OwnerEvent;
-import Event.ValueObjectsEvent.AllEvent.TitleEvent;
+import Event.ValueObjectsEvent.AllEvent.*;
 import Event.Type.Periodique;
 
 import java.time.LocalDateTime;
@@ -13,12 +10,14 @@ public abstract class Event {
     private OwnerEvent proprietaire;
     private DateEvent dateDebut;
     private DureeEvent dureeMinutes;
+    private EventId eventId;
 
     public Event(TitleEvent title, OwnerEvent proprietaire, DateEvent dateDebut, DureeEvent dureeMinutes) {
         this.title = title;
         this.proprietaire = proprietaire;
         this.dateDebut = dateDebut;
         this.dureeMinutes = dureeMinutes;
+        this.eventId = new EventId();
     }
 
     public TitleEvent getTitle() {
@@ -37,7 +36,9 @@ public abstract class Event {
         return dureeMinutes;
     }
 
-    public abstract String description();
+    public String description() {
+        return "EventId : " + this.eventId;
+    }
     public abstract String shortDescription();
 
     public boolean estDansPeriode(DateEvent debut, DateEvent fin) {
@@ -53,4 +54,7 @@ public abstract class Event {
         return this.dateDebut.isBefore(fin2) && fin1.isAfter(e.dateDebut.getDate());
     }
 
+    public EventId getEventId() {
+        return eventId;
+    }
 }

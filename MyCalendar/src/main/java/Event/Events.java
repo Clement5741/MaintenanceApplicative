@@ -38,4 +38,8 @@ public class Events {
         }
         return sb.toString();
     }
+
+    public void removeEvent(Event e) {
+        events.remove(e);
+    }
 }

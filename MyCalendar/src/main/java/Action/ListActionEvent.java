@@ -14,7 +14,8 @@ public class ListActionEvent extends ListAction {
         addAction(3, new AddReunionAction(user, calendar));
         addAction(4, new AddPeriodiqueAction(user, calendar));
         addAction(5, new AddBirthdayAction(user, calendar));
-        addAction(6, new DisconnectAction(user));
+        addAction(6, new DeleteEventAction(user, calendar));
+        addAction(7, new DisconnectAction(user));
     }
 
     @Override

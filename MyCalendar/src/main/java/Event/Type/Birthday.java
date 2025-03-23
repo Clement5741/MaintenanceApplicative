@@ -24,7 +24,8 @@ public class Birthday extends Event {
                 "\n     De : " + person + " qui fête ses " + age +
                 "\n     Le : " + this.getDateDebut() +
                 "\n     Durée : " + this.getDureeMinutes() +
-                "\n     Propriétaire : " + this.getProprietaire();
+                "\n     Propriétaire : " + this.getProprietaire() +
+                "\n" + super.description();
     }
 
     @Override

@@ -16,7 +16,7 @@ public class CalendarManager {
         // On regarde s'il y a un conflit
         for (Event event : events.getEvents()) {
             if (conflit(e, event)) {
-                throw new IllegalArgumentException("Conflit avec l'évènement : " + event.description());
+                throw new IllegalArgumentException("Conflit avec l'évènement : " + event.shortDescription());
             }
         }
         events.addEvent(e);
@@ -41,5 +41,9 @@ public class CalendarManager {
                         s -> System.out.println("\nListe des évènements : \n" + s),
                         () -> System.out.println("\nAucun événement")
                 );
+    }
+
+    public void removeEvent(Event e) {
+        events.removeEvent(e);
     }
 }

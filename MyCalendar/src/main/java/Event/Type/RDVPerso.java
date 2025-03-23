@@ -16,7 +16,8 @@ public class RDVPerso extends Event {
     public String description() {
         return "RDV : " + this.getTitle() + " le " + this.getDateDebut() +
                 " pour une durée de " + this.getDureeMinutes() +
-                "\n     Propriétaire : " + this.getProprietaire();
+                "\n     Propriétaire : " + this.getProprietaire() +
+                "\n" + super.description();
     }
 
     @Override
