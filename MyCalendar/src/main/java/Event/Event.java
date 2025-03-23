@@ -38,7 +38,7 @@ public abstract class Event {
     public abstract String description();
 
     public boolean estDansPeriode(DateEvent debut, DateEvent fin) {
-        return this.getDateDebut().isBefore(fin.getDate()) && this.getDateDebut().isAfter(debut.getDate());
+        return !this.getDateDebut().isBefore(debut.getDate()) && !this.getDateDebut().isAfter(fin.getDate());
     }
 
     public boolean conflitAvec(Event e) {
