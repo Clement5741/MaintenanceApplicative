@@ -3,6 +3,7 @@ package Calendar;
 import Event.ValueObjectsEvent.AllEvent.DateEvent;
 import Event.Events;
 import Event.Event;
+
 import java.util.Optional;
 
 public class CalendarManager {
@@ -13,12 +14,9 @@ public class CalendarManager {
     }
 
     public void addEvent(Event e) {
-        // On regarde s'il y a un conflit
-        for (Event event : events.getEvents()) {
-            if (conflit(e, event)) {
-                throw new IllegalArgumentException("Conflit avec l'évènement : " + event.shortDescription());
-            }
-        }
+        events.getEvents().stream().filter(event -> conflit(e, event)).findFirst().ifPresent(event -> {
+            throw new IllegalArgumentException("Conflit avec l'évènement : " + event.shortDescription());
+        });
         events.addEvent(e);
     }
 

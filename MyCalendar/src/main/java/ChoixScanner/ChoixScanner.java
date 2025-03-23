@@ -4,7 +4,6 @@ public class ChoixScanner {
 
     private int choixInt = -1;
 
-
     public ChoixScanner() {
     }
 

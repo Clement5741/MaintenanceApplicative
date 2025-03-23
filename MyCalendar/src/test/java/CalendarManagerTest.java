@@ -5,6 +5,8 @@ import Event.ValueObjectsEvent.Birthday.*;
 import Event.ValueObjectsEvent.Periodique.FrequencyDayEvent;
 import Event.ValueObjectsEvent.Reunion.*;
 import Event.Type.*;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
@@ -13,11 +15,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CalendarManagerTest {
 
+    private CalendarManager manager;
+
+    @BeforeEach
+    public void setUp() {
+        System.out.println("Début des tests de la classe CalendarManager");
+        manager = new CalendarManager();
+    }
+
     @Test
     public void testAjouterEvenementRDV() {
-        CalendarManager manager = new CalendarManager();
-
-
         TitleEvent titre = new TitleEvent("Rendez-vous test");
         OwnerEvent proprietaire = new OwnerEvent("moi");
         DateEvent date = new DateEvent(LocalDateTime.of(2021, 1, 1, 9, 0));
@@ -33,8 +40,6 @@ public class CalendarManagerTest {
 
     @Test
     public void testAjouterEvenementPeriodique() {
-        CalendarManager manager = new CalendarManager();
-
         TitleEvent titre = new TitleEvent("Rendez-vous test");
         OwnerEvent proprietaire = new OwnerEvent("moi");
         DateEvent date = new DateEvent(LocalDateTime.of(2021, 1, 1, 9, 0));
@@ -51,8 +56,6 @@ public class CalendarManagerTest {
 
     @Test
     public void testAjouterEvenementReunion() {
-        CalendarManager manager = new CalendarManager();
-
         TitleEvent titre = new TitleEvent("Rendez-vous test");
         OwnerEvent proprietaire = new OwnerEvent("moi");
         DateEvent date = new DateEvent(LocalDateTime.of(2021, 1, 1, 9, 0));
@@ -71,8 +74,6 @@ public class CalendarManagerTest {
 
     @Test
     public void testConflit() {
-        CalendarManager manager = new CalendarManager();
-
         DateEvent date = new DateEvent(LocalDateTime.of(2021, 1, 1, 9, 0));
         OwnerEvent proprietaire = new OwnerEvent("moi");
         DureeEvent duree = new DureeEvent(60); // durée en minutes
@@ -86,8 +87,6 @@ public class CalendarManagerTest {
 
     @Test
     public void testAjouterEvenementBirthday() {
-        CalendarManager manager = new CalendarManager();
-
         TitleEvent titre = new TitleEvent("Anniversaire");
         OwnerEvent proprietaire = new OwnerEvent("moi");
         DateEvent date = new DateEvent(LocalDateTime.of(2021, 1, 1, 9, 0));

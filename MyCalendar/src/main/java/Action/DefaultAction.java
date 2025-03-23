@@ -15,4 +15,9 @@ public class DefaultAction implements ActionInterface<User> {
         System.out.println("Option non valide.");
         return user;
     }
+
+    @Override
+    public String toString() {
+        return "Option non valide.";
+    }
 }

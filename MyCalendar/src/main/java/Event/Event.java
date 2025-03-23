@@ -39,6 +39,7 @@ public abstract class Event {
     public String description() {
         return "EventId : " + this.eventId;
     }
+
     public abstract String shortDescription();
 
     public boolean estDansPeriode(DateEvent debut, DateEvent fin) {
@@ -48,11 +49,8 @@ public abstract class Event {
     public boolean conflitAvec(Event e) {
         LocalDateTime fin1 = this.dateDebut.plusMinutes(this.dureeMinutes);
         LocalDateTime fin2 = e.dateDebut.plusMinutes(e.dureeMinutes);
-        if (e instanceof Periodique) {
-            return false;
-        }
-        return this.dateDebut.isBefore(fin2) && fin1.isAfter(e.dateDebut.getDate());
-    }
+
+        return !(e instanceof Periodique) && this.dateDebut.isBefore(fin2) && fin1.isAfter(e.dateDebut.getDate());    }
 
     public EventId getEventId() {
         return eventId;
