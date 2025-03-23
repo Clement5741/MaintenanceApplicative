@@ -1,6 +1,10 @@
 package Event.Type;
 
 import Event.*;
+import Event.ValueObjectsEvent.AllEvent.DateEvent;
+import Event.ValueObjectsEvent.AllEvent.DureeEvent;
+import Event.ValueObjectsEvent.AllEvent.OwnerEvent;
+import Event.ValueObjectsEvent.AllEvent.TitleEvent;
 
 public class RDVPerso extends Event {
 

@@ -4,9 +4,9 @@ import User.User;
 
 import java.util.*;
 
-public class ListAction {
+public abstract class ListAction {
 
-    private Map<Integer, ActionInterface<User>> actions;
+    protected Map<Integer, ActionInterface<User>> actions;
 
     public ListAction() {
         this.actions = new HashMap<>();
@@ -21,6 +21,11 @@ public class ListAction {
         return actions.getOrDefault(choixInt, defaultAction);
     }
 
-
+    public void afficherMenu() {
+        actions.forEach((key, action) -> {
+            System.out.println(key + " - " + action);
+        });
+        System.out.println("Choix : ");
+    }
 
 }

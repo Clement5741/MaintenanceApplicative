@@ -15,4 +15,9 @@ public class DisconnectAction implements ActionInterface<User> {
     public User execute() {
         return GestionUser.disconnect(user);
     }
+
+    @Override
+    public String toString() {
+        return "Se déconnecter";
+    }
 }

@@ -2,7 +2,7 @@ package Action.Event.ViewEvent;
 
 import Action.ActionInterface;
 import Calendar.CalendarManager;
-import Event.DateEvent;
+import Event.ValueObjectsEvent.AllEvent.DateEvent;
 import User.User;
 
 import java.time.LocalDateTime;

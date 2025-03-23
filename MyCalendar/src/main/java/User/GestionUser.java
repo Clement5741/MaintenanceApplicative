@@ -20,6 +20,8 @@ public class GestionUser {
         if (scanner.nextLine().equals(userPassword.getPassword())) {
             User user = new User(userName, userPassword);
             users.addUser(user);
+            System.out.println("Compte créé avec succès.");
+            System.out.println("Bonjour, " + user.getName());
             return user;
         } else {
             System.out.println("Les mots de passe ne correspondent pas.");
@@ -36,6 +38,7 @@ public class GestionUser {
         for (User u : users.getUsers()) {
             if (u.getName().equals(userName.getName()) && u.getPassword().equals(userPassword.getPassword())) {
                 System.out.println("Connexion réussie.");
+                System.out.println("Bonjour, " + u.getName());
                 return u;
             }
         }

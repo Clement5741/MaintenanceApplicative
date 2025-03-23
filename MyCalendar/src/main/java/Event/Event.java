@@ -1,5 +1,9 @@
 package Event;
 
+import Event.ValueObjectsEvent.AllEvent.DateEvent;
+import Event.ValueObjectsEvent.AllEvent.DureeEvent;
+import Event.ValueObjectsEvent.AllEvent.OwnerEvent;
+import Event.ValueObjectsEvent.AllEvent.TitleEvent;
 import Event.Type.Periodique;
 
 public abstract class Event {

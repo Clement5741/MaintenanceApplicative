@@ -17,4 +17,9 @@ public class ConnectionAction implements ActionInterface<User> {
     public User execute() {
         return GestionUser.connection(users);
     }
+
+    @Override
+    public String toString() {
+        return "Se connecter";
+    }
 }

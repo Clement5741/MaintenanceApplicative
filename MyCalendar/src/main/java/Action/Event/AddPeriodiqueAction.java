@@ -2,7 +2,11 @@ package Action.Event;
 
 import Action.ActionInterface;
 import Calendar.CalendarManager;
-import Event.*;
+import Event.ValueObjectsEvent.AllEvent.DateEvent;
+import Event.ValueObjectsEvent.AllEvent.DureeEvent;
+import Event.ValueObjectsEvent.AllEvent.OwnerEvent;
+import Event.ValueObjectsEvent.AllEvent.TitleEvent;
+import Event.ValueObjectsEvent.Periodique.FrequencyDayEvent;
 import Event.Type.Periodique;
 import User.User;
 
@@ -47,5 +51,10 @@ public class AddPeriodiqueAction implements ActionInterface<User> {
 
         System.out.println("Événement ajouté.");
         return user;
+    }
+
+    @Override
+    public String toString() {
+        return "Ajouter un évènement périodique";
     }
 }

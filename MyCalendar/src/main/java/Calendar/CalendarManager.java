@@ -1,6 +1,6 @@
 package Calendar;
 
-import Event.DateEvent;
+import Event.ValueObjectsEvent.AllEvent.DateEvent;
 import Event.Events;
 import Event.Event;
 import java.util.Optional;

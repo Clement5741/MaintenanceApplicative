@@ -1,5 +1,12 @@
 import Calendar.CalendarManager;
 import Event.*;
+import Event.ValueObjectsEvent.AllEvent.DateEvent;
+import Event.ValueObjectsEvent.AllEvent.DureeEvent;
+import Event.ValueObjectsEvent.AllEvent.OwnerEvent;
+import Event.ValueObjectsEvent.AllEvent.TitleEvent;
+import Event.ValueObjectsEvent.Periodique.FrequencyDayEvent;
+import Event.ValueObjectsEvent.Reunion.ParticipantsEvent;
+import Event.ValueObjectsEvent.Reunion.PlaceEvent;
 import Event.Type.Periodique;
 import Event.Type.RDVPerso;
 import Event.Type.Reunion;

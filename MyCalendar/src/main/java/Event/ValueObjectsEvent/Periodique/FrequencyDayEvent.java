@@ -1,4 +1,4 @@
-package Event;
+package Event.ValueObjectsEvent.Periodique;
 
 public class FrequencyDayEvent {
 

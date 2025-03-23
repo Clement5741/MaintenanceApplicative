@@ -2,7 +2,12 @@ package Action.Event;
 
 import Action.ActionInterface;
 import Calendar.CalendarManager;
-import Event.*;
+import Event.ValueObjectsEvent.AllEvent.DateEvent;
+import Event.ValueObjectsEvent.AllEvent.DureeEvent;
+import Event.ValueObjectsEvent.AllEvent.OwnerEvent;
+import Event.ValueObjectsEvent.AllEvent.TitleEvent;
+import Event.ValueObjectsEvent.Reunion.ParticipantsEvent;
+import Event.ValueObjectsEvent.Reunion.PlaceEvent;
 import Event.Type.Reunion;
 import User.User;
 
@@ -62,5 +67,10 @@ public class AddReunionAction implements ActionInterface<User> {
 
         System.out.println("Événement ajouté.");
         return user;
+    }
+
+    @Override
+    public String toString() {
+        return "Ajouter une réunion";
     }
 }

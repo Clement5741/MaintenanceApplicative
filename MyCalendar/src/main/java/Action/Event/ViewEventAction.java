@@ -57,4 +57,9 @@ public class ViewEventAction implements ActionInterface<User> {
                         () -> System.out.println("\nAucun événement trouvé pour cette période.")
                 );
     }
+
+    @Override
+    public String toString() {
+        return "Voir les événements";
+    }
 }

@@ -17,4 +17,9 @@ public class CreateAccountAction implements ActionInterface<User> {
     public User execute() {
         return GestionUser.createAccount(users);
     }
+
+    @Override
+    public String toString() {
+        return "Créer un compte";
+    }
 }

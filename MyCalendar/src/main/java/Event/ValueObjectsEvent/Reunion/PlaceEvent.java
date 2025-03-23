@@ -1,4 +1,4 @@
-package Event;
+package Event.ValueObjectsEvent.Reunion;
 
 public class PlaceEvent {
     private String lieu;
