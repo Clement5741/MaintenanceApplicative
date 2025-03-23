@@ -38,7 +38,7 @@ public class CalendarManager {
         Optional.of(events.ViewEvents())
                 .filter(s -> !s.isEmpty())
                 .ifPresentOrElse(
-                        s -> System.out.print("\nListe des évènements : \n" + s),
+                        s -> System.out.println("\nListe des évènements : \n" + s),
                         () -> System.out.println("\nAucun événement")
                 );
     }

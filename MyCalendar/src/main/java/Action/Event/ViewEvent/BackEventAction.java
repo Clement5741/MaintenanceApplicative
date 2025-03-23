@@ -9,4 +9,9 @@ public class BackEventAction implements ActionInterface<User> {
     public User execute() {
         return null;
     }
+
+    @Override
+    public String toString() {
+        return "Retour";
+    }
 }

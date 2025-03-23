@@ -39,4 +39,9 @@ public class ViewWeekEventAction implements ActionInterface<User> {
         afficherListe(calendar.eventsDansPeriode(debutSemaine, finSemaine));
         return null;
     }
+
+    @Override
+    public String toString() {
+        return "Voir les événements d'une SEMAINE précise";
+    }
 }

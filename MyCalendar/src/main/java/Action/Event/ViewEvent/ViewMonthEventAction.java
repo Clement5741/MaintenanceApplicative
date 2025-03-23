@@ -32,4 +32,9 @@ public class ViewMonthEventAction implements ActionInterface<User> {
         afficherListe(calendar.eventsDansPeriode(debutMois, finMois));
         return null;
     }
+
+    @Override
+    public String toString() {
+        return "Voir les événements d'un MOIS précis";
+    }
 }

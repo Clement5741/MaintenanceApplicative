@@ -19,4 +19,9 @@ public class ViewAllEventAction implements ActionInterface<User> {
         calendar.afficherEvenements();
         return null;
     }
+
+    @Override
+    public String toString() {
+        return "Voir tous les événements";
+    }
 }

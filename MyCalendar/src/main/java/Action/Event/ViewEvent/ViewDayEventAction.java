@@ -35,4 +35,9 @@ public class ViewDayEventAction implements ActionInterface<User> {
         afficherListe(calendar.eventsDansPeriode(debutJour, finJour));
         return null;
     }
+
+    @Override
+    public String toString() {
+        return "Voir les événements d'un JOUR précis";
+    }
 }

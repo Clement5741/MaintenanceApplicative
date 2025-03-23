@@ -2,6 +2,7 @@ package Action.Event;
 
 import Action.*;
 import Action.Event.ViewEvent.*;
+import ChoixScanner.ChoixScanner;
 import Event.*;
 import User.*;
 
@@ -21,29 +22,15 @@ public class ViewEventAction implements ActionInterface<User> {
     @Override
     public User execute() {
         Scanner scanner = new Scanner(System.in);
+        ChoixScanner choixScanner = new ChoixScanner();
 
-        Map<Integer, ActionInterface<User>> actions = new HashMap<>();
-        actions.put(1, new ViewAllEventAction(calendar));
-        actions.put(2, new ViewMonthEventAction(calendar));
-        actions.put(3, new ViewWeekEventAction(calendar));
-        actions.put(4, new ViewDayEventAction(calendar));
-        actions.put(5, new BackEventAction());
-
-
+        ListActionViewEvent listActionViewEvent = new ListActionViewEvent(calendar);
         ActionInterface<User> defaultAction = new DefaultAction(user);
+        listActionViewEvent.afficherMenu();
 
+        choixScanner.setChoixInt(scanner.nextInt());
 
-        System.out.println("\n=== Menu de visualisation d'Événements ===");
-        System.out.println("1 - Afficher TOUS les événements");
-        System.out.println("2 - Afficher les événements d'un MOIS précis");
-        System.out.println("3 - Afficher les événements d'une SEMAINE précise");
-        System.out.println("4 - Afficher les événements d'un JOUR précis");
-        System.out.println("5 - Retour");
-        System.out.println("==========================================");
-        System.out.print("Votre choix : ");
-        int choix = scanner.nextInt();
-
-        ActionInterface<User> action = actions.getOrDefault(choix, defaultAction);
+        ActionInterface<User> action = listActionViewEvent.getOrDefault(choixScanner.getChoixInt(), defaultAction);
         action.execute();
 
         return user;
@@ -53,7 +40,7 @@ public class ViewEventAction implements ActionInterface<User> {
         Optional.of(events.ViewEvents())
                 .filter(s -> !s.isEmpty())
                 .ifPresentOrElse(
-                        s -> System.out.print("\nListe des évènements : \n" + s),
+                        s -> System.out.println("\nListe des évènements : \n" + s),
                         () -> System.out.println("\nAucun événement trouvé pour cette période.")
                 );
     }
